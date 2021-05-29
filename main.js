@@ -37,6 +37,21 @@ const controls = new OrbitControls(camera, renderer.domElement);
 // function addShapes() {
 
 // }
+const moonTexture = new THREE.TextureLoader().load('img\moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('img\normal.jpg');
+
+const moon = new THREE.Mesh(
+    new THREE.SphereGeometry(3, 32, 32),
+    new THREE.MeshStandardMaterial({
+        map: moonTexture,
+        normalMap: normalTexture,
+    })
+);
+
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10);
 
 function animate() {
     requestAnimationFrame(animate);
